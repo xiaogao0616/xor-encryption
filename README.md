@@ -32,7 +32,7 @@ The path I took:
 
 **2. A wrong key can give an almost-right answer.** When I printed the score for every key, key 109 decrypted the message to `meet.me.at.the.library.at.noon`: the right message in lowercase. The reason is that `109 = 77 ^ 32`, and 32 (bit 5) is exactly the bit that separates uppercase and lowercase letters in ASCII. Spaces became byte 0, which is why it only scored 24/30. (The AI first said 25. My output showed 24, and it agreed it had miscounted.)
 
-**3. A longer repeating key does not help much.** A 6-byte key sounds like 256⁶ possibilities, but each key byte can be broken separately, so it only takes 6 × 256 tries. The correct key length stands out because its score jumps:
+**3. A longer repeating key does not help much.** Say the attacker only knows the key is at most 10 bytes long. Guessing the whole key at once would take about 256¹⁰ ≈ 10²⁴ tries. But each key byte can be broken separately, so for every guessed length L the attacker only needs L × 256 tries. Trying every length from 1 to 10 takes 256 × (1 + 2 + … + 10) = 14,080 tries, which ran in about 0.006 seconds on my laptop for a 1000-character message. The correct key length stands out because its score jumps:
 
 ```
 keylen 3: score 159/171  key = SEC
