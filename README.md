@@ -79,7 +79,7 @@ Or compile one file by itself, for example `gcc -Wall -o 1_xor_basic 1_xor_basic
 
 ## Presentation
 
-Slides: [`slides/`](slides)
+Slides: [`slides/xor-encryption-slides.pdf`](slides/xor-encryption-slides.pdf)
 
 ## AI conversation
 
